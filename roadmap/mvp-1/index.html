@@ -1,0 +1,1101 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+      
+        <link rel="prev" href="../">
+      
+      
+        <link rel="next" href="../mvp-2/">
+      
+      
+        
+      
+      
+      <link rel="icon" href="../../img/logo.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.7">
+    
+    
+      
+        <title>MVP 1 - Karross documentation</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/stylesheets/main.ec1eaa64.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+      <link rel="stylesheet" href="../../stylesheets/extra.css">
+    
+    <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+  </head>
+  
+  
+    <body dir="ltr">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#mvp-1-full-crud-on-simple-entities" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="../.." title="Karross documentation" class="md-header__button md-logo" aria-label="Karross documentation" data-md-component="logo">
+      
+  <img src="../../img/logo-white.png" alt="logo">
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            Karross documentation
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              MVP 1
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+
+<nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../.." title="Karross documentation" class="md-nav__button md-logo" aria-label="Karross documentation" data-md-component="logo">
+      
+  <img src="../../img/logo-white.png" alt="logo">
+
+    </a>
+    Karross documentation
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../.." class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Quickstart
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../presentation/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Presentation
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3" >
+        
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../../customization/" class="md-nav__link ">
+              
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Customization
+  
+
+    
+  </span>
+  
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_3" id="__nav_3_label" tabindex="0">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Customization
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../customization/routes/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Routes
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../customization/formatting-values/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Formatting values
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../customization/templates/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Templates
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../customization/translations/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Translations
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../customization/output/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Output
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4" checked>
+        
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../" class="md-nav__link ">
+              
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Roadmap
+  
+
+    
+  </span>
+  
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_4" id="__nav_4_label" tabindex="0">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_4">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Roadmap
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    MVP 1
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../mvp-2/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    MVP 2
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../mvp-3/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    MVP 3
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../contribute/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    How to contribute
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+
+<h1 id="mvp-1-full-crud-on-simple-entities">MVP 1 — Full CRUD on simple entities</h1>
+<details class="k-ticket k-ticket--blue">
+  <summary>1. Dead code &amp; deprecated methods <span class="k-status k-status--blue">Done</span></summary>
+
+  <table class="k-ticket">
+    <tbody>
+      <tr><th>Existing.</th><td>Phantom <code>PropertyInterface</code> — only an <code>@param</code> annotation in <code>EntityMetadata</code>; no such class, the real property types (<code>FieldMetadata</code>/<code>AssociationMetadata</code>) inherit from <code>PropertyMetadata</code>. Deprecated <code>getTypeOfField()</code>/<code>getTypeOfAssociation()</code> in <code>EntityMetadata</code> — pure wrappers of <code>getPropertyType()-&gt;value</code>, sole caller <code>TemplateResolver:44</code>, where <code>$property-&gt;type-&gt;value</code> is strictly equivalent. Note: <code>getTypeOfField()</code> in <code>EntityMetadataBuilder</code> is the Doctrine <code>ClassMetadata</code> method — untouched. No released version: the "backward compatibility" rationale is void.</td></tr>
+      <tr><th>Expected.</th><td>Dead code gone, zero behaviour change, all-check green.</td></tr>
+      <tr><th>Plan.</th><td><ol><li><code>EntityMetadata</code>: fix the phantom docblock (<code>PropertyInterface[]</code> → <code>PropertyMetadata[]</code>; the real collections are <code>FieldMetadata</code>/<code>AssociationMetadata</code>, both extending <code>PropertyMetadata</code>).</li><li><code>EntityMetadata</code>: drop <code>getTypeOfField()</code>, <code>getTypeOfAssociation()</code> <em>and</em> <code>getPropertyType()</code>. Code survey: no consumer of "type by name" — the type is consumed at build (<code>EntityMetadataBuilder</code> → <code>FormatterResolver::resolve()</code> to pick the formatter) and at resolution (<code>TemplateResolver</code>, which already holds <code>$property</code>); runtime rendering uses the precomputed <code>$property-&gt;formatter</code> class-string (<code>k_formatted_value</code>); templates never touch the type. The "nature × type → formatter/widget" logic this API prefigured (link around an association value, several links for a collection) is deferred to the <strong>Collect &amp; Computed</strong> foundation — a formatter concern, not a type-string lookup. (The <strong>Collect &amp; Computed</strong> foundation later replaces <code>$property-&gt;type-&gt;value</code> at <code>TemplateResolver:44</code> with the <code>templateKey</code> deduction, computed at build time from the facts — the <code>type</code> field disappears.)</li><li><code>TemplateResolver:44</code>: replace the wrapper call with <code>$property-&gt;type-&gt;value</code> (strictly equivalent; the field/association split already relies on <code>instanceof</code> at <code>TemplateResolver:41</code>).</li><li>Grep <code>src/</code> and <code>tests/</code> for <code>PropertyInterface|getTypeOfField|getTypeOfAssociation|getPropertyType</code> → zero remaining (Doctrine's <code>ClassMetadata::getTypeOfField()</code> in <code>EntityMetadataBuilder</code> is untouched).</li></ol></td></tr>
+    </tbody>
+  </table>
+</details>
+
+<details class="k-ticket k-ticket--blue">
+  <summary>2. Cache wiring (metadata + templates) <span class="k-status k-status--blue">Done</span></summary>
+
+  <table class="k-ticket">
+    <tbody>
+      <tr><th>Existing.</th><td><code>TemplateRegistry::all()</code> (double <code>return</code>, the second unreachable) and <code>EntityMetadataRegistry::all()</code> (commented-out cache) inject and wire a <code>CacheInterface</code> that is never used; real per-request cost (Twig <code>resolveTemplate()</code> per pattern behind <code>k_template</code>, metadata rebuilt several times per request).</td></tr>
+      <tr><th>Expected.</th><td>Caches never active in dev, always active in prod; identical behaviour in dev; all-check green.</td></tr>
+      <tr><th>Plan.</th><td><ol><li>Make <code>EntityMetadata</code> a pure data object: capture <code>fqcn</code> (from <code>classMetadata->getName()</code>) and <code>identifier</code> (from <code>classMetadata->getIdentifier()</code>) in <code>EntityMetadataBuilder</code> and pass them as constructor values; delete <code>getValue()</code> and <code>isEmbedded()</code> (no callers — runtime value reading already lives in the Twig extensions via <code>PropertyAccessor</code>, do not reimplement); <code>getFqcn()</code>/<code>getIdentifier()</code> return the stored values; remove the <code>ClassMetadata</code> property.</li><li>Gate: a <code>bool $cacheEnabled</code> computed once from <code>!kernel.debug</code> (each registry receives <code>kernel.debug</code> as a constructor argument via <code>services.php</code> and negates it — deliberately avoids the <code>symfony/expression-language</code> hard dependency that a container <code>expr()</code> would force); given to both registries.</li><li>Metadata cache: <code>EntityMetadataRegistry::all()</code> returns <code>cache.get('karross.metadata', build)</code> when enabled, fresh build when not (replacing the double-return / commented paths).</li><li>Template cache: <code>TemplateRegistry::all()</code> — same pattern on the resolver result, replacing the unreachable second <code>return</code>.</li><li>New integration test: with a debug kernel the registries rebuild every call; with a prod-like (debug=false) kernel the builder is invoked once and the cached result deep-equals a cold rebuild; the gate toggles correctly.</li></ol></td></tr>
+    </tbody>
+  </table>
+</details>
+
+<details class="k-ticket k-ticket--blue">
+  <summary>3. Complexity measure in CI <span class="k-status k-status--blue">Done</span></summary>
+
+  <table class="k-ticket">
+    <tbody>
+      <tr><th>Existing.</th><td>No automated complexity measure; the PHPStan baseline (139) mostly blames over-fed arrays.</td></tr>
+      <tr><th>Expected.</th><td>Deterministic AST-based cyclomatic measure over <code>src/</code>, baseline + threshold, run in CI and locally via <code>make</code>.</td></tr>
+      <tr><th>Plan.</th><td><ol><li>Install <strong>ast-metrics</strong> in the Docker image: fetch the pinned release binary (version + SHA256 in the Dockerfile) into <code>/usr/local/bin</code>; confirm the version targets PHP 8.5. Pinned <code>v0.43.0</code> (supports PHP ≤ 8.5, single static binary, works offline).</li><li>Config <code>.ast-metrics.yaml</code> (<code>ast-metrics init</code> then trimmed), rulesets <code>complexity</code> + <code>volume</code> over <code>./src</code> with the REC-confirmed thresholds: <code>max_cyclomatic: 10</code>, <code>max_loc: 30</code>, <code>max_logical_loc: 20</code>. Note: <code>max_nesting</code> only exists in ast-metrics' <code>golang</code> ruleset — there is no PHP nesting rule, so the plan drops it.</li><li>Freeze the current state: <code>ast-metrics baseline src</code>, commit the snapshot (mirrors <code>phpstan-baseline.neon</code>); only new violations fail.</li><li>Local flow: add <code>make qa</code> → <code>ast-metrics lint</code> (exit 1 on any regression beyond the baseline); include it in <code>all-check</code> so local and CI share the same gate.</li><li>CI: add a <code>make qa</code> step in <code>ci.yml</code> after phpstan — regressions beyond the baseline block the pipeline.</li><li>Docs: document <code>make qa</code> and the baseline-regeneration rule (after cleanup sprints) in <code>docs/src/contribute.md</code>.</li></ol> <strong>Realized.</strong> Validation was revealing: in v0.43 the two <em>by-method</em> volume rules only scan top-level functions (<code>file.Stmts.StmtFunction</code>) — PHP class methods live in <code>StmtClass[].StmtFunction</code> — so <code>max_loc_by_method</code> / <code>max_logical_loc_by_method</code> never fire on class-based code (zero violation at threshold 1). The logical-lines rule (<code>max_logical_loc</code>) reports PHP accurately. <code>max_loc</code> (physical lines) was tried then dropped: docblocks inflated it (49 physical lines for 27 code lines — noise). Final gate: <code>max_cyclomatic: 10</code> + <code>max_logical_loc: 20</code>, by-method keys kept declared (inert on classes); baseline freezes <strong>11</strong> pre-existing violations (6 cyclomatic + 5 logical-lines).</td></tr>
+    </tbody>
+  </table>
+</details>
+
+<details class="k-ticket k-ticket--blue">
+  <summary>4. Browser CSS compatibility gate in CI <span class="k-status k-status--blue">Done</span></summary>
+
+  <table class="k-ticket">
+    <tbody>
+      <tr><th>Existing.</th><td>Zero CSS today, no defined browser support.</td></tr>
+      <tr><th>Expected.</th><td>A CI gate failing on any CSS unsupported by the target browsers.</td></tr>
+      <tr><th>Prerequisites.</th><td>Decide the supported browser set.</td></tr>
+      <tr><th>Plan.</th><td><ol><li>Pin the npm tooling: a minimal <code>package.json</code> with <code>stylelint</code> + <code>stylelint-plugin-use-baseline</code> (Node is already in the container for Playwright). Exact version pins, no committed lock — mirrors the composer philosophy; <code>node_modules</code> lives on the host via the volume, like <code>vendor/</code>.</li><li><code>.stylelintrc.mjs</code>: <code>plugin/use-baseline</code> policy set to <code>widely</code> first (most compatible — REC choice), relaxed to <code>newly</code> later only if a theme feature justifies it.</li><li>Fix the canonical asset path <code>src/Resources/public/css/karross.css</code> (Symfony bundle convention, host-replaceable) — the gate lints the bundle's own single CSS file; delivery (compression, cache, hashing) stays out of bundle scope.</li><li><code>make css-check</code>: stylelint gate, exit 1 on any unsupported CSS at the target level (warnings treated as errors via <code>--max-warnings 0</code>); wired into the CI pipeline.</li><li>Docs: <code>contribute.md</code> — the <code>make css-check</code> command and the Baseline policy.</li></ol></td></tr>
+    </tbody>
+  </table>
+</details>
+
+<details class="k-ticket k-ticket--blue">
+  <summary>5. Reorganize Metadata folder — Collect/Computed <span class="k-status k-status--blue">Done</span></summary>
+
+  <table class="k-ticket">
+    <tbody>
+      <tr><th>Existing.</th><td>The <code>Metadata</code> namespace mixes analysis machinery (<code>PropertyTypeDetector</code>, <code>EntityMetadataBuilder</code>) and output read-models (<code>EntityMetadata</code>, <code>PropertyMetadata</code>, <code>FieldMetadata</code>, <code>AssociationMetadata</code>, registry). The DTO <code>PropertyTypeInfo</code> (no consumer) sits in <code>Karross\Formatters</code>, unused.</td></tr>
+      <tr><th>Expected.</th><td>Two clean, non-crossing namespaces:
+      <ul>
+        <li><strong><code>Metadata\Collect</code></strong>: machinery only — <code>PropertyTypeDetector</code> (type detection), <code>EntityMetadataBuilder</code> (orchestrator that constructs the read-models).</li>
+        <li><strong><code>Metadata\Computed</code></strong>: read-models — <code>EntityMetadata</code>, <code>PropertyMetadata</code>, <code>FieldMetadata</code>, <code>AssociationMetadata</code>, <code>FieldLabel</code>, <code>EntityMetadataRegistry</code> (the access layer).</li>
+      </ul>
+      Dependency rule (corrected): the pure read-models (Computed) never import Collect machinery — they are inert data. The only seam is the registry (Computed) consuming the builder (Collect), while the builder constructs the read-models (so Collect → Computed exists by construction). <code>PropertyType</code> stays at the <code>Karross\Metadata</code> root (shared vocabulary between both sides and the Formatters) — it is meant to disappear with the "Collect & Computed" refactor. The DTO <code>PropertyTypeInfo</code> (no consumer) is deleted.</td></tr>
+      <tr><th>Prerequisites.</th><td>None.</td></tr>
+      <tr><th>Plan.</th><td><ol><li>Create <code>src/Metadata/Collect/</code> and <code>src/Metadata/Computed/</code>.</li><li>Move the machinery (<code>PropertyTypeDetector</code>, <code>EntityMetadataBuilder</code>) into <code>Collect/</code>.</li><li>Move the read-models (<code>EntityMetadata</code>, <code>PropertyMetadata</code>, <code>FieldMetadata</code>, <code>AssociationMetadata</code>, <code>FieldLabel</code>) into <code>Computed/</code>.</li><li>Move <code>EntityMetadataRegistry</code> into <code>Computed/</code> (the access layer over the read-models).</li><li>Leave <code>PropertyType</code> at the <code>Karross\Metadata</code> root — shared vocabulary, destined to disappear with the "Collect & Computed" refactor.</li><li>Delete <code>PropertyTypeInfo</code> (DTO with no consumer).</li><li>Update every import: <code>services.php</code>, <code>EntityMetadataRegistry</code>, <code>EntityMetadata</code> (creates <code>FieldLabel</code>), Twig extensions, Routes, Pages, Actions, tests.</li><li>Docs: architecture context and <code>docs/src</code> note the rule — Computed read-models stay inert (no Collect import); the seam is the registry → builder.</li></ol></td></tr>
+    </tbody>
+  </table>
+</details>
+
+<details class="k-ticket k-ticket--orange">
+  <summary>Collect &amp; Computed <span class="k-status k-status--orange">Clarified</span></summary>
+
+  <table class="k-ticket">
+    <tbody>
+      <tr><th>Existing.</th><td>Aujourd'hui, la collecte est <strong>réductrice</strong> :
+      <ul>
+        <li><code>PropertyTypeDetector::detect()</code> tord chaque propriété dans une case d'un enum sémantique maison (<code>PropertyType</code> : string, integer, date…), une interprétation propre au bundle imposée avant tout usage, à partir du type PHP, du type Doctrine et du PHPDoc.</li>
+        <li>Tous les consommateurs se raccrochent à cette case : le formatter par une correspondance « un type = un formatter » (<code>FormatterResolver::resolve()</code>, appelé par le builder), les clés de template par <code>_type_{propertyType}</code>.</li>
+        <li>Les faits bruts sont perdus : longueur, précision, échelle, nullable… jamais vus. Le DTO <code>PropertyTypeInfo</code>, prévu pour les porter, n'a aucun consommateur.</li>
+        <li>L'enum mélange en outre la <em>nature</em> (string, integer, date…) et la <em>structure</em> (une valeur / plusieurs valeurs), alors que la structure est déjà connue : Doctrine sait si une association est to-one ou to-many, et les templates distinguent un champ d'une association.</li>
+      </ul></td></tr>
+      <tr><th>Expected.</th><td>La collecte <strong>rassemble les faits, sans les interpréter</strong> :
+      <ul>
+        <li>un <strong>collecteur</strong> (ex-<code>PropertyTypeDetector</code>, dans <code>Metadata\Collect</code>) agrège par propriété les <strong>faits statiques</strong> : <code>phpType</code>, <code>doctrineType</code>, les <code>details</code> de colonne (longueur, précision, nombre de décimales, <code>enumType</code>, <code>unsigned</code>, <code>fixed</code>, <code>nullable</code>, id/version/champ généré), la cardinalité le cas échéant (to-one/to-many) et le drapeau « conflit » entre sources — aucune projection, aucun type sémantique ;</li>
+        <li>les <strong>objets construits</strong> (<code>Metadata\Computed</code>) : le <code>PropertyMetadata</code> porte ces faits, <em>et les <strong>déductions</strong> utiles au bundle, calculées au build à partir des faits</em> — le formatter, la clé de template, et demain le widget. Chaque déduction est décidée par son propre mécanisme d'usage, remplaçable par la config hôte ;</li>
+        <li>l'enum <code>PropertyType</code> et le DTO <code>PropertyTypeInfo</code> <strong>disparaissent</strong> (ainsi que le champ <code>type</code> des métadonnées) : plus aucun vocabulaire sémantique forcé, ni de distinction nature/structure dans un enum.</li>
+      </ul>
+
+Règles de remplissage des faits (posées ici une fois pour toutes) :
+      <ul>
+        <li>la déclaration PHP fait foi quand elle existe ;</li>
+        <li>sans type PHP (propriété non typée), on prend le type Doctrine ;</li>
+        <li>si les deux se contredisent (ex. PHP dit <code>string</code>, Doctrine dit <code>json</code>), les faits ne tranchent pas tout seul : les deux valeurs sont gardées et signalées par le drapeau « conflit ». Le ticket du cas concerné décidera laquelle gagne ;</li>
+        <li>la config explicite de l'app hôte surcharge tout (les faits comme les déductions) ;</li>
+        <li>le PHPDoc n'est <strong>jamais</strong> utilisé : rien ne garantit qu'il soit à jour.</li>
+      </ul></td></tr>
+      <tr><th>Prerequisites.</th><td>5.</td></tr>
+      <tr><th>Plan.</th><td><ol><li>Collecteur : réécrire <code>PropertyTypeDetector</code> en collecteur de faits (<code>Metadata\Collect</code>) — reçoit la propriété + le mapping complet (<code>getFieldMapping()</code>/<code>getAssociationMapping()</code>, passés par <code>EntityMetadataBuilder::buildFields()</code>/<code>buildAssociations()</code>) ; aucune projection, suppression de la branche PHPDoc.</li><li>Computed : <code>PropertyMetadata</code> porte les faits (phpType, doctrineType, details, cardinalité, conflit) <em>et les déductions</em> — <code>formatter</code> (déjà présent), <code>templateKey</code>, et la place du futur <code>widget</code> ; suppression du champ <code>type</code>.</li><li>Usages : <code>FormatterResolver</code> devient une chaîne qui lit les faits (défauts déterministes par type PHP/Doctrine) ; la clé de template devient une déduction calculée au build à partir des faits (champ/assoc + type de colonne), consommée telle quelle par <code>TemplateResolver</code> — aucun template <code>_type_*</code> existant à casser.</li><li>Enum : suppression totale de <code>PropertyType</code>, plus aucun consommateur au build ni au rendu.</li><li>Adressage : read-models → <code>Metadata\Computed</code>, machines → <code>Metadata\Collect</code> (mouvement du ticket 5) ; <code>services.php</code> + <code>EntityMetadataRegistry</code> à jour.</li><li>Tests : règles de fusion (typé / non typé → Doctrine / conflit → drapeau), contenu des faits et des déductions (formatter, clé de template), fidélité cache dev/prod (ticket 2).</li></ol></td></tr>
+    </tbody>
+  </table>
+</details>
+
+<details class="k-ticket k-ticket--red">
+  <summary>Boolean — cas de lecture <span class="k-status k-status--red">Proposed</span></summary>
+
+  <table class="k-ticket">
+    <tbody>
+      <tr><th>Existing.</th><td><code>bool</code> → <code>PropertyType::Boolean</code> → <code>TrueFalseFormatter</code> ; rien de plus (Doctrine boolean n'apporte rien).</td></tr>
+      <tr><th>Expected.</th><td>Tous les cas Boolean (typé, nullable, union avec null, non typé, conflit Doctrine, embedded) lisent les mêmes faits (<code>phpType</code> bool, <code>doctrineType</code> boolean) ; formatteur <code>TrueFalseFormatter</code> ; widget futur = checkbox + <code>required</code> ; clé template field.</td></tr>
+      <tr><th>Prerequisites.</th><td>Collect &amp; Computed (faits + déductions portés par <code>PropertyMetadata</code>).</td></tr>
+      <tr><th>Analysis.</th><td>Cas énumérés dans le corps du ticket : le maillon Boolean de la chaîne formatter lit les faits portés par <code>PropertyMetadata</code> ; override config gagne ; données E2E 0 / 1 / null. Doctrine n'ayant rien à refinir, c'est le cas le plus simple — sert de gabarit de rédaction aux autres.</td></tr>
+    </tbody>
+  </table>
+</details>
+
+<details class="k-ticket k-ticket--red">
+  <summary>Integer — cas de lecture <span class="k-status k-status--red">Proposed</span></summary>
+
+  <table class="k-ticket">
+    <tbody>
+      <tr><th>Existing.</th><td><code>int</code> → <code>PropertyType::Integer</code> → <code>IntlNumberFormatter</code> ; Doctrine <code>smallint/integer/bigint</code> s'effondrent en Integer — taille et signe perdus.</td></tr>
+      <tr><th>Expected.</th><td>Traits de taille portés par le <code>PropertyMetadata</code> (<code>smallint</code>/<code>integer</code>/<code>bigint</code> → bornes pour le futur widget number), <code>unsigned</code>, <code>id</code>/<code>version</code>/<code>generated</code> = indicateurs read-only ; scale absente (jamais de décimales) ; non typé → Doctrine seul.</td></tr>
+      <tr><th>Prerequisites.</th><td>Collect &amp; Computed.</td></tr>
+      <tr><th>Analysis.</th><td>Smallint vs bigint est la distinction que le widget exploitera (contrainte de bornes), pas le fait d'être int — exactement la granularité que la vue 1-to-1 enum→formatter écrasait.</td></tr>
+    </tbody>
+  </table>
+</details>
+
+<details class="k-ticket k-ticket--red">
+  <summary>Float — cas de lecture <span class="k-status k-status--red">Proposed</span></summary>
+
+  <table class="k-ticket">
+    <tbody>
+      <tr><th>Existing.</th><td><code>float</code> → <code>PropertyType::Float</code> → <code>IntlNumberFormatter</code> ; <code>scale</code>/<code>precision</code> DECIMAL jetés.</td></tr>
+      <tr><th>Expected.</th><td>Traits <code>scale</code>/<code>precision</code> portés par le <code>PropertyMetadata</code> alimentent <code>IntlNumberFormatter</code> (DECIMAL(10,2) → exactement 2 décimales) ; futur widget number <code>step</code> issu du scale.</td></tr>
+      <tr><th>Prerequisites.</th><td>Collect &amp; Computed.</td></tr>
+      <tr><th>Analysis.</th><td>Scale = raffinement le plus critique (sans lui, 3.14 ou 3.140000 selon la représentation). Le maillon Float lit le <code>scale</code> porté par le <code>PropertyMetadata</code> — pas de multiplication de cases enum.</td></tr>
+    </tbody>
+  </table>
+</details>
+
+<details class="k-ticket k-ticket--red">
+  <summary>String — cas de lecture <span class="k-status k-status--red">Proposed</span></summary>
+
+  <table class="k-ticket">
+    <tbody>
+      <tr><th>Existing.</th><td><code>string</code> → <code>PropertyType::String</code> → <code>StringFormatter</code> ; length, <code>fixed</code>, JSON-ness jetés ; une colonne Doctrine <code>json</code> typée <code>string</code> en PHP résout String (priorité PHP d'abord — fausse).</td></tr>
+      <tr><th>Expected.</th><td>Traits <code>length</code>, <code>fixed</code>, <code>json</code>-ness portés par le <code>PropertyMetadata</code> ; Doctrine <code>json/jsonb/json_object</code> → distinction <strong>Json</strong> (Doctrine plus informatif que PHP) ; <code>guid</code> ; futur widget text <code>maxlength</code>.</td></tr>
+      <tr><th>Prerequisites.</th><td>Collect &amp; Computed.</td></tr>
+      <tr><th>Analysis.</th><td>La priorité PHP qui cache un <code>json</code> derrière <code>string</code> devient une règle explicite : Doctrine gagne quand il est plus informatif (json, enum, decimal…). Troncature et rendu monospace atterrissent avec ce maillon.</td></tr>
+    </tbody>
+  </table>
+</details>
+
+<details class="k-ticket k-ticket--red">
+  <summary>DateTime — cas de lecture <span class="k-status k-status--red">Proposed</span></summary>
+
+  <table class="k-ticket">
+    <tbody>
+      <tr><th>Existing.</th><td><code>DateTimeInterface</code> → <code>Date</code>/<code>Time</code>/<code>DateTime</code> via le raffinement Doctrine ; gestion du timezone partielle.</td></tr>
+      <tr><th>Expected.</th><td>Sous-type raffiné par Doctrine (<code>date</code>/<code>time</code>/<code>datetime</code>/<code>datetimetz</code>) porté par le <code>PropertyMetadata</code> ; timezone appliqué au rendu ; cas nullable et non typé ; formatteurs existants réutilisés ; futurs pickers date/time/datetime.</td></tr>
+      <tr><th>Prerequisites.</th><td>Collect &amp; Computed.</td></tr>
+      <tr><th>Analysis.</th><td>PHP ne peut pas distinguer date/time/datetime — Doctrine raffinne sans conflit. Les maillons Date/Time/DateTime sont minces : les formatteurs existants suffisent pour l'affichage MVP-1.</td></tr>
+    </tbody>
+  </table>
+</details>
+
+<details class="k-ticket k-ticket--red">
+  <summary>Enum — cas de lecture <span class="k-status k-status--red">Proposed</span></summary>
+
+  <table class="k-ticket">
+    <tbody>
+      <tr><th>Existing.</th><td>Classe enum PHP → <code>PropertyType::Enum</code> → <code>EnumFormatter</code> ; cases et labels résolus via la traduction de la valeur, sans <code>enumType</code> Doctrine.</td></tr>
+      <tr><th>Expected.</th><td>Le trait <code>enumType</code> Doctrine fournit la classe d'enum exacte → <code>::cases()</code> pour les labels et les options ; non typé avec enum type Doctrine géré ; futur widget select alimenté par les mêmes cases.</td></tr>
+      <tr><th>Prerequisites.</th><td>Collect &amp; Computed.</td></tr>
+      <tr><th>Analysis.</th><td>Seul Doctrine fournit les cases — PHP seul ne peut pas les inventer. Le maillon Enum lit le <code>enumType</code> porté par le <code>PropertyMetadata</code> ; affichage et futur widget partagent la même liste de cases, de la même source.</td></tr>
+    </tbody>
+  </table>
+</details>
+
+<details class="k-ticket k-ticket--red">
+  <summary>Stringable — cas de lecture <span class="k-status k-status--red">Proposed</span></summary>
+
+  <table class="k-ticket">
+    <tbody>
+      <tr><th>Existing.</th><td>Objets avec <code>__toString</code> → <code>PropertyType::String</code> → <code>StringFormatter</code> ; objets génériques sans <code>__toString</code> → <code>Unknown</code>.</td></tr>
+      <tr><th>Expected.</th><td>La branche Stringable rendue explicite (interface <code>Stringable</code> ou <code>__toString</code>) ; objets non stringables → <code>NotAvailable</code> sauf si un type Doctrine les mappe ; futur widget text read-only.</td></tr>
+      <tr><th>Prerequisites.</th><td>Collect &amp; Computed.</td></tr>
+      <tr><th>Analysis.</th><td>Le cas « objet stringable » est une branche nommée du collecteur (fait <code>phpType</code> → <code>Stringable</code>) — le maillon choisit le formatteur de string, sûr pour tout objet <code>__toString</code>.</td></tr>
+    </tbody>
+  </table>
+</details>
+
+<details class="k-ticket k-ticket--red">
+  <summary>DateInterval / BcMath\Number — cas de lecture <span class="k-status k-status--red">Proposed</span></summary>
+
+  <table class="k-ticket">
+    <tbody>
+      <tr><th>Existing.</th><td>Non mappés — <code>dateinterval</code> et <code>number</code> tombent dans <code>Unknown</code> → <code>NotAvailableFormatter</code>.</td></tr>
+      <tr><th>Expected.</th><td>Doctrine <code>dateinterval</code> (PHP <code>\DateInterval</code>) → affichage durée ; <code>number</code> (PHP 8.5 <code>\BcMath\Number</code>) → rendu BcMath ; nouveaux formatteurs d'affichage MVP-1.</td></tr>
+      <tr><th>Prerequisites.</th><td>Collect &amp; Computed.</td></tr>
+      <tr><th>Analysis.</th><td>Deux types PHP 8.5 natifs portés par des types Doctrine dédiés ; leurs maillons enregistrent les formatteurs durée et nombre dans la chaîne.</td></tr>
+    </tbody>
+  </table>
+</details>
+
+<details class="k-ticket k-ticket--red">
+  <summary>Array / structured — cas de lecture <span class="k-status k-status--red">Proposed</span></summary>
+
+  <table class="k-ticket">
+    <tbody>
+      <tr><th>Existing.</th><td>PHP <code>array</code> → <code>PropertyType::Array</code> → <code>NotAvailableFormatter</code> ; Doctrine <code>simple_array</code> et <code>json</code> s'effondrent en Unknown ou String.</td></tr>
+      <tr><th>Expected.</th><td>Doctrine <code>simple_array</code> → liste de chips ; <code>json/jsonb</code> → pretty-printer JSON ; type d'item deviné via Doctrine quand possible ; futurs widgets renvoyés en MVP-2.</td></tr>
+      <tr><th>Prerequisites.</th><td>Collect &amp; Computed.</td></tr>
+      <tr><th>Analysis.</th><td>Les types structurés (non scalaires) n'ont pas de conteneur PHP contraignant fort — Doctrine porte la distinction. Widgets MVP-2.</td></tr>
+    </tbody>
+  </table>
+</details>
+
+<details class="k-ticket k-ticket--red">
+  <summary>Association to-one — cas de lecture <span class="k-status k-status--red">Proposed</span></summary>
+
+  <table class="k-ticket">
+    <tbody>
+      <tr><th>Existing.</th><td><code>isAssociation</code> → <code>PropertyType::Single</code> ; le template item rend un lien vers l'action show.</td></tr>
+      <tr><th>Expected.</th><td>Associations to-one (<code>ManyToOne</code>/<code>OneToOne</code>) résolues depuis la cardinalité portée par le <code>PropertyMetadata</code> ; rendu en lien ; futur widget select renvoyé en MVP-2.</td></tr>
+      <tr><th>Prerequisites.</th><td>Collect &amp; Computed.</td></tr>
+      <tr><th>Analysis.</th><td>Structure, pas nature : Doctrine <code>isSingleValuedAssociation()</code> répond déjà ; la case <code>Single</code> disparaît du vocabulaire de type.</td></tr>
+    </tbody>
+  </table>
+</details>
+
+<details class="k-ticket k-ticket--red">
+  <summary>Association to-many — cas de lecture <span class="k-status k-status--red">Proposed</span></summary>
+
+  <table class="k-ticket">
+    <tbody>
+      <tr><th>Existing.</th><td><code>isAssociation</code> + indice collection → <code>PropertyType::Collection</code> ; le template item rend une liste de liens.</td></tr>
+      <tr><th>Expected.</th><td>Associations to-many (<code>OneToMany</code>/<code>ManyToMany</code>) résolues depuis la cardinalité portée par le <code>PropertyMetadata</code> ; rendu liste-de-liens ; futur multi-select renvoyé en MVP-2.</td></tr>
+      <tr><th>Prerequisites.</th><td>Collect &amp; Computed.</td></tr>
+      <tr><th>Analysis.</th><td>Idem Association to-one — la distinction un-versus-plusieurs vient de Doctrine, pas d'un enum de type.</td></tr>
+    </tbody>
+  </table>
+</details>
+
+<details class="k-ticket k-ticket--red">
+  <summary>Untyped properties &amp; unions — transversal <span class="k-status k-status--red">Proposed</span></summary>
+
+  <table class="k-ticket">
+    <tbody>
+      <tr><th>Existing.</th><td>Chaîne de fallback dans <code>PropertyTypeDetector</code> : PHP → Doctrine (le PHPDoc est écarté — source non fiable). Les types union prennent le premier membre non-null.</td></tr>
+      <tr><th>Expected.</th><td>Propriété non typée traitée comme chemin de premier ordre (Doctrine seul, puis NotAvailable + override config) ; unions → premier membre non-null ; nullable intégré comme modificateur dans le tableau de cas de chaque autre ticket.</td></tr>
+      <tr><th>Prerequisites.</th><td>Tous les tickets de cas ci-dessus (pose les règles transversales par-dessus chaque maillon).</td></tr>
+      <tr><th>Analysis.</th><td>Pas un type mais des modificateurs transversaux — la colonne « cas » de chaque ticket les liste déjà ; ce ticket consolide l'ordre de fallback et le nullable dans le collecteur.</td></tr>
+    </tbody>
+  </table>
+</details>
+
+<details class="k-ticket k-ticket--red">
+  <summary>WidgetResolver — form type mapping (chain of responsibility) <span class="k-status k-status--red">Proposed</span></summary>
+
+  <table class="k-ticket">
+    <tbody>
+      <tr><th>Existing.</th><td>Les faits portés par <code>PropertyMetadata</code> (socle Collect &amp; Computed) alimentent l'affichage/le formatage ; rien ne les mappe vers des types de form Symfony.</td></tr>
+      <tr><th>Expected.</th><td>Un <code>WidgetResolver</code> en miroir de la chaîne formatter : chaque maillon lit les faits portés par <code>PropertyMetadata</code> → type de form + options (scale → step, length → maxlength, enum → select des cases, not-null → required) ; override config gagne ; mince pour les scalaires MVP-1, widgets riches en MVP-2.</td></tr>
+      <tr><th>Prerequisites.</th><td>Collect &amp; Computed (le socle) + au minimum les tickets de cas scalaires dont la lane CRUD a besoin (Boolean, Integer, Float, String).</td></tr>
+      <tr><th>Analysis.</th><td>Contrepartie <strong>runtime-impacting</strong> de la chaîne formatter : les mêmes faits pilotent les types de form à l'écriture et leurs contraintes. Même pattern chaîne de responsabilité, vocabulaire propre. Décision REC à trancher : <code>symfony/form</code> non installé — service fourni par l'hôte ou dépendance du bundle. Enabler des tickets CRUD ci-dessous.</td></tr>
+    </tbody>
+  </table>
+</details>
+
+<details class="k-ticket k-ticket--red">
+  <summary>Generic create/update forms <span class="k-status k-status--red">Proposed</span></summary>
+
+  <table class="k-ticket">
+    <tbody>
+      <tr><th>Existing.</th><td>Index/show + home actions only; <code>Action</code> enum holds create/update/delete as TODO.</td></tr>
+      <tr><th>Expected.</th><td>Create and update with CSRF, validation, redirect after post, flash, flush/cascade; simple scalars first, embedded/relations deferred to MVP 2.</td></tr>
+      <tr><th>Prerequisites.</th><td>WidgetResolver — form type mapping (chain of responsibility).</td></tr>
+      <tr><th>Analysis.</th><td>The Action enum keeps <code>CREATE</code>/<code>UPDATE</code>/forms commented as TODO and the classes exist as <strong>empty stubs</strong> (<code>Create</code>, <code>CreateForm</code>, <code>Update</code>, <code>EditForm</code> — all <code>__invoke(): void</code>); routes only cover index/show + home (<code>RouteLoader</code> via <code>RouteGenerator</code>) and <code>Action::httpMethods()</code> is GET-only. Build on the mapping ticket: create/update GET form + POST submit, CSRF, validation, redirect-after-POST, flash, flush/cascade; simple scalars first, embedded/relations deferred to MVP-2. The <code>symfony/form</code> dependency is decided in the mapping ticket.</td></tr>
+    </tbody>
+  </table>
+</details>
+
+<details class="k-ticket k-ticket--red">
+  <summary>Delete action <span class="k-status k-status--red">Proposed</span></summary>
+
+  <table class="k-ticket">
+    <tbody>
+      <tr><th>Existing.</th><td>No mutation actions.</td></tr>
+      <tr><th>Expected.</th><td>Delete with CSRF protection, cascade-safe, redirect + flash.</td></tr>
+      <tr><th>Prerequisites.</th><td>Generic create/update forms — shares its pipeline.</td></tr>
+      <tr><th>Analysis.</th><td><code>Delete</code> exists as an empty stub, the enum case is commented, no POST route exists and <code>httpMethods()</code> is GET-only. Build on the forms pipeline (7): POST delete with CSRF, cascade-safe, redirect + flash.</td></tr>
+    </tbody>
+  </table>
+</details>
+
+<details class="k-ticket k-ticket--red">
+  <summary>Minimal design decision <span class="k-status k-status--red">Proposed</span></summary>
+
+  <table class="k-ticket">
+    <tbody>
+      <tr><th>Existing.</th><td>Zero CSS, zero tokens, zero assets; the templates (<code>templates/base.html.twig</code>, <code>home.html.twig</code>, <code>index/*</code>) are plain unstyled markup.</td></tr>
+      <tr><th>Expected.</th><td>CSS strategy (design tokens + <code>k-*</code> classes), zero JS until the forms, dark mode?, fonts, asset location, host replacability.</td></tr>
+      <tr><th>Prerequisites.</th><td>Browser CSS compatibility gate in CI — guards before any CSS.</td></tr>
+      <tr><th>Analysis.</th><td>Decide with REC: vanilla CSS + custom-property tokens over the existing <code>k-*</code> classes (cap from the conversations), zero JS until the forms, dark mode via <code>prefers-color-scheme</code>?, system font stack, asset location, host replaceability (full CSS replacement vs token override), WCAG target (AA). The CI gates of 4 land before any CSS is written. Delivery stays bundle-scoped: ship the CSS ready-to-use (minified) at the canonical path fixed in 4, version it through the Symfony Asset component (<code>asset()</code> in the Twig templates inherits the host's version strategy — no build chain, no Encore); compression and cache headers are the host's responsibility (documented in 12, not built here).</td></tr>
+    </tbody>
+  </table>
+</details>
+
+<details class="k-ticket k-ticket--red">
+  <summary>Minimal theme — index/show + responsive <span class="k-status k-status--red">Proposed</span></summary>
+
+  <table class="k-ticket">
+    <tbody>
+      <tr><th>Existing.</th><td>No CSS anywhere; the index/show/home templates are plain markup.</td></tr>
+      <tr><th>Expected.</th><td>Token system, single CSS file, system fonts, validated by the Browser CSS compatibility gate in CI + the responsive budget.</td></tr>
+      <tr><th>Prerequisites.</th><td>Minimal design decision.</td></tr>
+      <tr><th>Analysis.</th><td>Style the existing index/show markup with the tokens of 9: one CSS file, system fonts, responsive behavior validated by the gate and the responsive budget of 4. Nothing exists today — greenfield styling. The file ships minified as decided in 9, referenced via <code>asset()</code>.</td></tr>
+    </tbody>
+  </table>
+</details>
+
+<details class="k-ticket k-ticket--red">
+  <summary>CRUD forms styling <span class="k-status k-status--red">Proposed</span></summary>
+
+  <table class="k-ticket">
+    <tbody>
+      <tr><th>Existing.</th><td>No styling; the forms are not yet implemented (7) and the theme is not built (10).</td></tr>
+      <tr><th>Expected.</th><td>Thin styling layer over the stable markup of Generic create/update forms and the theme of Minimal theme — index/show + responsive.</td></tr>
+      <tr><th>Prerequisites.</th><td>Generic create/update forms + Minimal theme — index/show + responsive.</td></tr>
+      <tr><th>Analysis.</th><td>Adds a thin layer on top of the stable form markup (7) and the theme (10): field layout, buttons, focus-visible, error states, WCAG-AA surfaces; no new CSS system, only components. Landed once both prerequisites support the markup.</td></tr>
+    </tbody>
+  </table>
+</details>
+
+<details class="k-ticket k-ticket--red">
+  <summary>Reference documentation <span class="k-status k-status--red">Proposed</span></summary>
+
+  <table class="k-ticket">
+    <tbody>
+      <tr><th>Existing.</th><td>The online docs cover usage (how-to) but offer no systematic reference of the whole configuration surface.</td></tr>
+      <tr><th>Expected.</th><td>A reference section in the online docs (à la Sonata) listing every MVP-1 configuration option — routes, formatters, type overrides, template override points — curated or generated, scope to decide.</td></tr>
+      <tr><th>Analysis.</th><td>The docs cover usage (presentation/, customization/) but have no systematic reference of the whole configuration surface. Build a reference section (à la Sonata) listing every MVP-1 option — routes, formatters, type overrides, template override points. Include a Delivery strategy section (bundle-scoped): canonical CSS asset path, Asset-component versioning, and the host-side note that compression / cache headers are the app's responsibility. Decide with REC: handwritten vs generated from the code/config; compiled progressively, complete once the MVP-1 config surface is stable.</td></tr>
+    </tbody>
+  </table>
+</details>
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+    <div class="md-copyright__highlight">
+      <span>Karross theme, inspired by <a href="https://squidfunk.github.io/mkdocs-material/" rel="noopener">Material for MkDocs</a></span>
+<a class="md-footer-repo" href="https://github.com/Karross/KarrossBundle" rel="noopener" title="KarrossBundle on GitHub" aria-label="KarrossBundle on GitHub"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16" width="16" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.013 8.013 0 0 0 16 8c0-4.42-3.58-8-8-8z"/></svg>KarrossBundle, MIT</a>
+
+    </div>
+  
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      
+      <script id="__config" type="application/json">{"annotate": null, "base": "../..", "features": ["navigation.indexes"], "search": "../../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
+    
+    
+      <script src="../../assets/javascripts/bundle.d7400e89.min.js"></script>
+      
+    
+  </body>
+</html>
