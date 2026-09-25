@@ -1,0 +1,910 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+      
+        <link rel="prev" href="../mvp-1/">
+      
+      
+        <link rel="next" href="../mvp-3/">
+      
+      
+        
+      
+      
+      <link rel="icon" href="../../img/logo.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.7">
+    
+    
+      
+        <title>MVP 2 - Karross documentation</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/stylesheets/main.ec1eaa64.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+      <link rel="stylesheet" href="../../stylesheets/extra.css">
+    
+    <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+  </head>
+  
+  
+    <body dir="ltr">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#mvp-2-complex-properties-fine-grained-customization" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="../.." title="Karross documentation" class="md-header__button md-logo" aria-label="Karross documentation" data-md-component="logo">
+      
+  <img src="../../img/logo-white.png" alt="logo">
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            Karross documentation
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              MVP 2
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+
+<nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../.." title="Karross documentation" class="md-nav__button md-logo" aria-label="Karross documentation" data-md-component="logo">
+      
+  <img src="../../img/logo-white.png" alt="logo">
+
+    </a>
+    Karross documentation
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../.." class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Quickstart
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../presentation/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Presentation
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3" >
+        
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../../customization/" class="md-nav__link ">
+              
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Customization
+  
+
+    
+  </span>
+  
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_3" id="__nav_3_label" tabindex="0">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Customization
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../customization/routes/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Routes
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../customization/formatting-values/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Formatting values
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../customization/templates/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Templates
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../customization/translations/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Translations
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../customization/output/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Output
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4" checked>
+        
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../" class="md-nav__link ">
+              
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Roadmap
+  
+
+    
+  </span>
+  
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_4" id="__nav_4_label" tabindex="0">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_4">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Roadmap
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../mvp-1/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    MVP 1
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    MVP 2
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../mvp-3/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    MVP 3
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../contribute/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    How to contribute
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+
+<h1 id="mvp-2-complex-properties-fine-grained-customization">MVP 2 — Complex properties &amp; fine-grained customization</h1>
+<details class="k-ticket k-ticket--red">
+  <summary>Complex properties <span class="k-status k-status--red">Proposed</span></summary>
+
+  <table class="k-ticket">
+    <tbody>
+      <tr><th>Existing.</th><td>Index/show already cover simple scalars and read-only associations; an embedded-fields metadata base is in place.</td></tr>
+      <tr><th>Expected.</th><td>Arrays, objects and all Doctrine association types handled in forms and display; embedded fields deepened.</td></tr>
+      <tr><th>Prerequisites.</th><td>MVP 1 — CRUD lane (type detection rework, WidgetResolver form mapping, forms, delete action).</td></tr>
+    </tbody>
+  </table>
+</details>
+
+<details class="k-ticket k-ticket--red">
+  <summary>Fine-grained form customization <span class="k-status k-status--red">Proposed</span></summary>
+
+  <table class="k-ticket">
+    <tbody>
+      <tr><th>Expected.</th><td>Per-property form customization (widget, constraints, labels), configurable like the formatters.</td></tr>
+      <tr><th>Prerequisites.</th><td>MVP 1 — Collect &amp; Computed foundation and WidgetResolver (facts carried by <code>PropertyMetadata</code>).</td></tr>
+    </tbody>
+  </table>
+</details>
+
+<details class="k-ticket k-ticket--red">
+  <summary>Richer formatters <span class="k-status k-status--red">Proposed</span></summary>
+
+  <table class="k-ticket">
+    <tbody>
+      <tr><th>Expected.</th><td>Four small stories: address-to-map, color picker, calendar, multi-select.</td></tr>
+      <tr><th>Prerequisites.</th><td>MVP 1 — Minimal design decision: they require JS, blocked by the design lane.</td></tr>
+    </tbody>
+  </table>
+</details>
+
+<details class="k-ticket k-ticket--red">
+  <summary>JSON output <span class="k-status k-status--red">Proposed</span></summary>
+
+  <table class="k-ticket">
+    <tbody>
+      <tr><th>Existing.</th><td>HTML via the twig responders; the headless JSON rendering is already an interface in germ.</td></tr>
+      <tr><th>Expected.</th><td>JSON endpoints — scope (endpoints, shape, media-type) and timing to decide.</td></tr>
+      <tr><th>Prerequisites.</th><td>MVP 1 — CRUD lane.</td></tr>
+    </tbody>
+  </table>
+</details>
+
+<details class="k-ticket k-ticket--red">
+  <summary>Navigation between related entities <span class="k-status k-status--red">Proposed</span></summary>
+
+  <table class="k-ticket">
+    <tbody>
+      <tr><th>Expected.</th><td>Navigate from one entity to its related ones (UX open: breadcrumbs? linked pages?).</td></tr>
+      <tr><th>Prerequisites.</th><td>MVP 1 — CRUD lane.</td></tr>
+    </tbody>
+  </table>
+</details>
+
+<details class="k-ticket k-ticket--red">
+  <summary>In-admin documentation <span class="k-status k-status--red">Proposed</span></summary>
+
+  <table class="k-ticket">
+    <tbody>
+      <tr><th>Expected.</th><td>Developer help embedded in the admin pages.</td></tr>
+      <tr><th>Prerequisites.</th><td>Coupled to the design lane — to decide.</td></tr>
+    </tbody>
+  </table>
+</details>
+
+<details class="k-ticket k-ticket--red">
+  <summary>Pagination <span class="k-status k-status--red">Proposed</span></summary>
+
+  <table class="k-ticket">
+    <tbody>
+      <tr><th>Existing.</th><td><code>Index::__invoke()</code> appelle <code>$repository->findAll()</code> — toutes les entités sont chargées en mémoire, sans limite ni offset. Pas de paramètre de page dans l'URL, pas de contrôle de la taille de page.</td></tr>
+      <tr><th>Expected.</th><td>La page index affiche les entités par pages. La taille de page est configurable par entité (config <code>karross</code>) avec une valeur par défaut raisonnable (25). L'état de la page courante est dans l'URL (<code>?page=2</code> ou <code>/page/2</code>) — bookmarkable, partageable. Le repository utilise <code>Query::setMaxResults()/setFirstResult()</code> au lieu de <code>findAll()</code>. Les liens previous/next sont rendus dans le template.</td></tr>
+      <tr><th>Prerequisites.</th><td>None.</td></tr>
+      <tr><th>Plan.</th><td><ol>
+        <li><strong>Config</strong> : ajouter un nœud <code>entities.{FQCN}.page_size</code> (int, défaut 25) dans <code>Configuration.php</code>.</li>
+        <li><strong>Index action</strong> : extraire le paramètre <code>page</code> de la requête (défaut 1), calculer l'offset (<code>($page - 1) * $pageSize</code>), utiliser un <code>Query</code> avec <code>setMaxResults($pageSize)</code> et <code>setFirstResult($offset)</code> au lieu de <code>findAll()</code>. Compter le total (<code>COUNT</code>) pour savoir s'il y a une page suivante.</li>
+        <li><strong>Route</strong> : ajouter un paramètre optionnel <code>page</code> dans le pattern de route index (ou le garder en query string — REC decision).</li>
+        <li><strong>Template</strong> : ajouter un partial <code>templates/index/pagination.html.twig</code> avec liens previous/next, numéro de page courant, rendu conditionnel (pas de pagination si une seule page).</li>
+        <li><strong>Tests</strong> : test d'intégration vérifiant le comportement pagination (page 1 avec 25 résultats, page 2 avec le reste). Test E2E vérifiant la navigation entre pages.</li>
+      </ol></td></tr>
+    </tbody>
+  </table>
+</details>
+
+<details class="k-ticket k-ticket--red">
+  <summary>Property visibility &amp; ordering <span class="k-status k-status--red">Proposed</span></summary>
+
+  <table class="k-ticket">
+    <tbody>
+      <tr><th>Existing.</th><td>Toutes les propriétés Doctrine (champs + associations) sont toujours affichées, dans l'ordre de <code>ClassMetadata::getFieldNames()</code> puis <code>getAssociationNames()</code>. Pas de mécanisme pour masquer une propriété, en afficher certaines uniquement en index ou en show, ou changer l'ordre des colonnes. Les templates itèrent <code>entityMetadata.getProperties()</code> sans filtre.</td></tr>
+      <tr><th>Expected.</th><td>Par entité, contrôle des propriétés affichées en index et en show, et de leur ordre. Le défaut raisonnable reste « tout afficher dans l'ordre Doctrine » — l'override est optionnel. La config porte un tableau ordonné de noms de propriétés ; seules les propriétés listées sont rendues, dans l'ordre donné. Un écran « password » ou « hashedToken » peut être masqué de l'index tout en restant présent en show.</td></tr>
+      <tr><th>Prerequisites.</th><td>None.</td></tr>
+      <tr><th>Plan.</th><td><ol>
+        <li><strong>Config</strong> : ajouter <code>entities.{FQCN}.index_properties</code> (string array, nullable) et <code>entities.{FQCN}.show_properties</code> (string array, nullable) dans <code>Configuration.php</code>. <code>null</code> = toutes les propriétés (comportement actuel).</li>
+        <li><strong>EntityMetadata</strong> : ajouter deux propriétés <code>readonly array $indexProperties</code> et <code>readonly array $showProperties</code> (listes de noms de propriétés, ou vide = toutes). Les filtrer depuis <code>EntityMetadataBuilder</code> en fonction de la config.</li>
+        <li><strong>Templates index/show</strong> : itérer <code>entityMetadata.getIndexProperties()</code> (ou <code>getShowProperties()</code>) au lieu de <code>getProperties()</code> pour les en-têtes et les cellules. Quand la liste est vide, fallback sur <code>getProperties()</code>.</li>
+        <li><strong>Tests</strong> : test d'intégration vérifiant qu'avec une config <code>index_properties: ['title', 'published']</code>, seules ces colonnes apparaissent dans le HTML rendu.</li>
+      </ol></td></tr>
+    </tbody>
+  </table>
+</details>
+
+<details class="k-ticket k-ticket--red">
+  <summary>Database sort <span class="k-status k-status--red">Proposed</span></summary>
+
+  <table class="k-ticket">
+    <tbody>
+      <tr><th>Existing.</th><td>Aucun tri — les entités sont rendues dans l'ordre de <code>findAll()</code> (ordre d'insertion/ID par défaut Doctrine). Pas de liens de tri dans les en-têtes de colonne, pas de paramètre de tri dans l'URL.</td></tr>
+      <tr><th>Expected.</th><td>Tri par colonne en index, au niveau DB via Doctrine QueryBuilder (pas en mémoire). L'état du tri est dans l'URL (query string : <code>?sort=title&direction=asc</code>) — bookmarkable. Les en-têtes de colonne sont des liens cliquables qui basculent asc/desc. Tri sur les champs scalaires ; les associations et les colonnes composées restent non triables par défaut.</td></tr>
+      <tr><th>Prerequisites.</th><td>Pagination (le tri est architecturalement coupled au paginated query).</td></tr>
+      <tr><th>Plan.</th><td><ol>
+        <li><strong>Config</strong> : optionnel — <code>entities.{FQCN}.sortable</code> (string array, nullable) pour restreindre les colonnes triables. Défaut = tous les champs scalaires.</li>
+        <li><strong>Index action</strong> : extraire les paramètres <code>sort</code> et <code>direction</code> de la requête, valider le <code>sort</code> contre les propriétés triables, appliquer <code>Query::orderBy()</code> dans le QueryBuilder. Utiliser les paramètres liés (<code>setParameter()</code>) si le tri est sur une colonne Doctrine.</li>
+        <li><strong>Templates</strong> : dans <code>items.html.twig</code>, rendre les en-têtes de colonne scalaires comme des liens <code>?sort={name}&direction={asc|desc}</code> avec une flèche d'indication. Les en-têtes d'association ne sont pas cliquables.</li>
+        <li><strong>Tests</strong> : test d'intégration vérifiant que <code>?sort=title&direction=asc</code> retourne les entités triées par titre. Test E2E vérifiant le clic sur un en-tête de colonne.</li>
+      </ol></td></tr>
+    </tbody>
+  </table>
+</details>
+
+<details class="k-ticket k-ticket--red">
+  <summary>Per-property filters <span class="k-status k-status--red">Proposed</span></summary>
+
+  <table class="k-ticket">
+    <tbody>
+      <tr><th>Existing.</th><td>Aucun filtre — l'index affiche toutes les entités sans mechanisme de sélection. Pas de <code>FilterResolver</code>, pas de chaîne de résolution pour les filtres comme il en existe pour les formatters et les templates.</td></tr>
+      <tr><th>Expected.</th><td>Filtres par propriété en index, avec un <code>FilterResolver</code> en 3e chaîne parallèle (après <code>FormatterResolver</code> + <code>PropertyTemplateResolver</code>). Chaque type Doctrine sait produire un filtre : <code>boolean</code> → select Oui/Non/Tous ; <code>string</code> → texte ; <code>integer</code>/<code>decimal</code> → plage ; <code>datetime</code> → plage de dates ; <code>enum</code> → select des cases. L'état des filtres est dans l'URL (query string) — bookmarkable. Les filtres sont combinés avec AND. La config peut restreindre les propriétés filtrables par entité.</td></tr>
+      <tr><th>Prerequisites.</th><td>Pagination + Collect &amp; Computed (les faits portés par <code>PropertyMetadata</code> pilotent la résolution du filtre).</td></tr>
+      <tr><th>Plan.</th><td><ol>
+        <li><strong>FilterResolverInterface</strong> : créer <code>src/Filters/Resolvers/FilterResolverInterface</code> avec <code>accept(?string $phpType, ?FieldMapping $fieldMapping): bool</code> et <code>resolve(...): FilterInterface</code>. Le <code>FilterInterface</code> expose <code>buildQuery(QueryBuilder $qb, string $alias, string $property, $value): void</code> et <code>renderForm(PropertyMetadata $property): string</code> (le HTML du champ de filtre).</li>
+        <li><strong>Filtres par type</strong> : <code>BooleanFilterResolver</code> (select Oui/Non/Tous), <code>StringFilterResolver</code> (LIKE), <code>IntegerFilterResolver</code> (plage min/max), <code>DecimalFilterResolver</code> (plage), <code>DateTimeFilterResolver</code> (plage de dates), <code>EnumFilterResolver</code> (select des cases). Chaque resolver est un service taggé <code>karross.filter.resolver</code>.</li>
+        <li><strong>Config</strong> : <code>entities.{FQCN}.filterable</code> (string array, nullable) pour restreindre les propriétés filtrables. Défaut = toutes les propriétés scalaires.</li>
+        <li><strong>Index action</strong> : extraire les paramètres de filtre de la requête, les combiner avec AND dans le QueryBuilder via les filtres résolus.</li>
+        <li><strong>Template</strong> : ajouter un partial <code>templates/index/filters.html.twig</code> au-dessus du tableau, rendant le formulaire de filtres. Le formulaire soumet en GET avec les paramètres de filtre dans la query string.</li>
+        <li><strong>Tests</strong> : test d'intégration vérifiant qu'un filtre <code>?published=1</code> retourne uniquement les entités publiées. Test E2E vérifiant l'interaction filtre.</li>
+      </ol></td></tr>
+    </tbody>
+  </table>
+</details>
+
+<details class="k-ticket k-ticket--red">
+  <summary>Reference documentation — update <span class="k-status k-status--red">Proposed</span></summary>
+
+  <table class="k-ticket">
+    <tbody>
+      <tr><th>Existing.</th><td>The reference page created in MVP 1 covers the base configuration surface (routes, formatters, type overrides, template overrides).</td></tr>
+      <tr><th>Expected.</th><td>Extend the reference with the MVP-2 surface: per-property form customization, widget renderers, richer formatters, JSON output, pagination, visibility, sort, filters.</td></tr>
+      <tr><th>Prerequisites.</th><td>This MVP's Fine-grained form customization + Richer formatters: the reference documents the config surface once it stabilizes.</td></tr>
+    </tbody>
+  </table>
+</details>
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+    <div class="md-copyright__highlight">
+      <span>Karross theme, inspired by <a href="https://squidfunk.github.io/mkdocs-material/" rel="noopener">Material for MkDocs</a></span>
+<a class="md-footer-repo" href="https://github.com/Karross/KarrossBundle" rel="noopener" title="KarrossBundle on GitHub" aria-label="KarrossBundle on GitHub"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16" width="16" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.013 8.013 0 0 0 16 8c0-4.42-3.58-8-8-8z"/></svg>KarrossBundle, MIT</a>
+
+    </div>
+  
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      
+      <script id="__config" type="application/json">{"annotate": null, "base": "../..", "features": ["navigation.indexes"], "search": "../../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
+    
+    
+      <script src="../../assets/javascripts/bundle.d7400e89.min.js"></script>
+      
+    
+  </body>
+</html>

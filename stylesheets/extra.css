@@ -1,0 +1,357 @@
+/* Karross — habillage sobre "maison de luxe" : noir et blanc, or discret.
+   Pas de palette Material : les couleurs sont definies ici, en CSS pur. */
+
+/* Nuancier */
+:root {
+    --md-primary-fg-color: #111111;
+    --md-primary-bg-color: #ffffff;
+    --md-primary-fg-color--dark: #000000;
+    --md-accent-fg-color: #9a7b4f;
+}
+
+/* Header : fond noir, titre en serif espace (style enseigne) */
+.md-header {
+    background: #111111;
+    border-top: 2px solid #9a7b4f;
+}
+
+.md-header__title {
+    font-family: Georgia, "Times New Roman", serif;
+    letter-spacing: 0.08em;
+}
+
+/* Logo : un peu plus present dans le header */
+.md-header .md-logo img {
+    height: 2.6rem;
+}
+
+/* Titres : serif classique, espacement leger ; titres de page en or */
+.md-typeset h1 {
+    font-family: Georgia, "Times New Roman", serif;
+    font-weight: 400;
+    letter-spacing: 0.02em;
+    color: #9a7b4f;
+}
+
+.md-typeset h2 {
+    font-family: Georgia, "Times New Roman", serif;
+}
+
+/* Rubriques principales : bandeau noir, texte blanc, filet or en retrait
+   au-dessus pour se detacher des sous-titres. */
+.md-content h2 {
+    background: #111111;
+    color: #ffffff;
+    border-top: 2px solid #9a7b4f;
+    font-size: 1.35em;
+    margin: 2em 0 0.6em;
+    padding: 0.5em 0.8em;
+}
+
+.md-content h2:first-child {
+    margin-top: 0;
+}
+
+.md-content h2 a {
+    color: inherit;
+}
+
+/* Sous-titres : attenues */
+.md-content h3 {
+    font-size: 1.2em;
+    color: #555555;
+    margin-top: 1.6em;
+}
+
+/* Liens : soulignes finement, hover or */
+.md-typeset a {
+    text-decoration: underline;
+    text-underline-offset: 0.2em;
+}
+
+.md-typeset a:hover {
+    color: #9a7b4f;
+}
+
+/* Puces : losange or expression d'un niveau, ligne discreta au niveau 2 */
+.md-typeset ul > li {
+    list-style: none;
+    padding-left: 0.5em;
+}
+
+.md-typeset ul > li::before {
+    content: "\25C6";
+    color: #9a7b4f;
+    font-size: 0.55em;
+    vertical-align: 0.15em;
+    margin-right: 0.55em;
+}
+
+.md-typeset ul ul > li::before {
+    content: "\2013";
+    color: #9a7b4f;
+    font-size: 0.9em;
+    vertical-align: 0;
+}
+
+/* Codage : filet de contraste discret */
+.md-typeset code,
+.md-typeset pre {
+    font-size: 0.95em;
+}
+
+/* =========================================================
+   Panneaux lateraux : fond ivoire, filets, typo "enseigne".
+   ========================================================= */
+
+/* NB: Material pose une marge laterale sur le scrollwrap pour la
+   scrollbar -> on la neutralise pour que l'ivoire touche les bords. */
+.md-sidebar__scrollwrap {
+    margin: 0;
+}
+
+/* Colonne gauche : ivoire sur toute la hauteur + filet or d'accent */
+.md-sidebar--primary .md-sidebar__scrollwrap {
+    background: #f7f6f3;
+    border-left: 2px solid #9a7b4f;
+}
+
+/* Colonne droite : le fond epouse la hauteur du TOC, on ne l'etire pas */
+.md-sidebar--secondary .md-sidebar__inner {
+    background: #f7f6f3;
+}
+
+.md-sidebar .md-sidebar__inner {
+    padding: 0.6rem 0.9rem;
+}
+
+/* Titres de nav (site + "On this page") : sticky sur fond ivoire,
+   sans bande blanche, et le menu qui defile ne transparait pas !*/
+.md-sidebar .md-nav__title {
+    background: #f7f6f3;
+    box-shadow: none;
+    color: #111111;
+    font-size: 0.85rem;
+    font-weight: 600;
+}
+
+/* Liens de navigation : meme taille a gauche et a droite */
+.md-nav__link {
+    color: #333333;
+    font-size: 0.85rem;
+}
+
+.md-nav__link:hover {
+    color: #9a7b4f;
+}
+
+.md-nav__item--active > .md-nav__link {
+    color: #111111;
+    font-weight: 600;
+}
+
+/* Etiquette "On this page" (TOC) : discret, police du theme */
+.md-sidebar--secondary .md-nav__title {
+    letter-spacing: 0.02em;
+    color: #9a7b4f;
+}
+
+/* Tableaux : en-tetes discrets, police heritee, fines lignes */
+.md-typeset table th {
+    font-weight: 600;
+    color: #333333;
+    background: #f7f6f3;
+    border-bottom: 1px solid #e5e0d8;
+}
+
+.md-typeset table {
+    border: 1px solid #e5e0d8;
+}
+
+/* =========================================================
+   Statuts du backlog (roadmap) — pastilles de couleur
+   ========================================================= */
+.k-status {
+    display: inline-block;
+    padding: 0 0.6em;
+    border-radius: 999px;
+    font-size: 0.78em;
+    font-weight: 600;
+    line-height: 1.7;
+    white-space: nowrap;
+}
+
+.k-status--red    { background: #d64545; color: #ffffff; }
+.k-status--orange { background: #e0962b; color: #ffffff; }
+.k-status--yellow { background: #eab308; color: #422006; }
+.k-status--green  { background: #2f9e44; color: #ffffff; }
+.k-status--blue   { background: #1c7ed6; color: #ffffff; }
+
+/* Piloter la largeur de la zone de contenu (marges Material par défaut) */
+.md-grid {
+    max-width: 96rem;
+}
+
+/* Colonnes détachées des bords de l'écran */
+.md-main .md-grid {
+    margin-left: 1.25rem;
+    margin-right: 1.25rem;
+}
+
+.md-sidebar__inner {
+    padding-right: 0.5rem;
+    padding-left: 0.5rem;
+}
+
+.md-sidebar--secondary .md-sidebar__inner {
+    border-left: none;
+}
+
+/* Colonnes latérales vides ou réduites à 0/1 entrée : on ne les montre pas
+   (CSS pur, pas de JS → pas de flash), mais on RESERVE leur place en flex
+   pour que la largeur du contenu central soit constante d'une page à l'autre. */
+@media screen and (min-width: 60em) {
+    .md-sidebar--secondary[hidden],
+    .md-sidebar:not(:has(.md-nav__item + .md-nav__item)) {
+        display: block;
+        visibility: hidden;
+        pointer-events: none;
+    }
+
+    .md-sidebar--secondary[hidden] .md-sidebar__scrollwrap,
+    .md-sidebar--secondary[hidden] .md-sidebar__inner,
+    .md-sidebar:not(:has(.md-nav__item + .md-nav__item)) .md-sidebar__scrollwrap,
+    .md-sidebar:not(:has(.md-nav__item + .md-nav__item)) .md-sidebar__inner {
+        background: transparent;
+        border: none;
+        box-shadow: none;
+    }
+
+    /* Le contenu garde la même marge intérieure que si la colonne était là */
+    .md-sidebar--secondary ~ .md-content .md-content__inner {
+        margin-right: 1.2rem;
+    }
+}
+
+/* Tickets de la roadmap : barre repliable (titre blanc sur fond sombre), liseré = statut */
+.md-typeset .k-status {
+    vertical-align: middle;
+    margin-left: 0.4em;
+}
+
+.md-typeset details.k-ticket {
+    background-color: transparent;
+    border: none;
+    box-shadow: none;
+    color: var(--md-default-fg-color);
+    font-size: inherit;
+    margin: 0.5em 0 1.6em 0;
+    padding: 0;
+}
+
+.md-typeset details.k-ticket:focus-within {
+    box-shadow: none;
+}
+
+.md-typeset details.k-ticket > summary {
+    background-color: #20232a;
+    border: none;
+    border-left: 5px solid transparent;
+    border-radius: 0;
+    color: #ffffff;
+    cursor: pointer;
+    font-size: 1.2em;
+    font-weight: 600;
+    line-height: 1.2;
+    list-style: none;
+    margin: 0;
+    padding: 0.55em 1em 0.55em 0.8em;
+}
+
+.md-typeset details.k-ticket > summary::-webkit-details-marker {
+    display: none;
+}
+
+/* Annule la pastille Material (icône admonition) sur le summary */
+.md-typeset details.k-ticket > summary::before {
+    display: none;
+}
+
+.md-typeset details.k-ticket > summary::after {
+    content: "\25B8";
+    display: inline-block;
+    margin-left: 0.5em;
+    transition: transform 0.15s ease;
+    vertical-align: text-bottom;
+}
+
+.md-typeset details.k-ticket[open] > summary::after {
+    transform: rotate(90deg);
+}
+
+/* Tableau du ticket : label dans une colonne dédiée */
+.md-typeset details.k-ticket table.k-ticket {
+    border: none;
+    margin: 0.6em 0 0.4em 0;
+    width: 100%;
+}
+
+.md-typeset details.k-ticket table.k-ticket td,
+.md-typeset details.k-ticket table.k-ticket th {
+    border-bottom: none;
+    border-top: 1px solid #ededed;
+    padding: 0.4em 0.9em;
+    text-align: left;
+    vertical-align: top;
+}
+
+.md-typeset details.k-ticket table.k-ticket th {
+    color: var(--md-default-fg-color);
+    font-weight: 600;
+    min-width: 11em;
+    white-space: nowrap;
+}
+
+/* Matériel : annule wrapper/marges insérés par Material dans les details */
+.md-typeset details.k-ticket .md-typeset__scrollwrap {
+    margin: 0;
+}
+
+.md-typeset details.k-ticket .md-typeset__table {
+    padding: 0;
+}
+
+/* Le liseré de statut porte sur la barre de titre */
+.md-typeset details.k-ticket--red    > summary { border-left-color: #d64545; }
+.md-typeset details.k-ticket--orange > summary { border-left-color: #e0962b; }
+.md-typeset details.k-ticket--yellow > summary { border-left-color: #eab308; }
+.md-typeset details.k-ticket--green  > summary { border-left-color: #2f9e44; }
+.md-typeset details.k-ticket--blue   > summary { border-left-color: #1c7ed6; }
+
+/* =========================================================
+   Footer : attribution à gauche, licence + dépôt GitHub à droite
+   (classes Material v9 : md-copyright / md-copyright__highlight)
+   ========================================================= */
+.md-copyright {
+    flex: 1;
+}
+
+.md-copyright__highlight {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: space-between;
+    gap: 0.4rem 2rem;
+}
+
+.md-footer-repo {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.35rem;
+}
+
+.md-footer-repo svg {
+    width: 1.05rem;
+    height: 1.05rem;
+    fill: currentColor;
+}
